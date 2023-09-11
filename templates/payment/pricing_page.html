@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <section>
+    <p class="title">Pricing Plans</p>
+    <div class="columns">
+        {% for product in products %}
+        <div class="column">
+            <p class="subtitle">{{ product.name }}</p>
+            {% for plan in product.plan_set.all %}
+            <div>
+                <p class="heading">{{ plan.nickname }}</p>
+                <p>{{ plan.human_readable_price }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+    </section>
+
+
+</body>
+</html>
